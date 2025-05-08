@@ -11,29 +11,29 @@ public class Prodotto {
     public Float prezzo;
     public Float iva;
 
-    public Prodotto(int codice, String nome, String descrizione, Float prezzo, Float iva){
-        this.codice = codice;
+    public Prodotto(String nome, String descrizione, Float prezzo, Float iva){
+        Random codice = new Random();
+        this.codice = codice.nextInt(999999);
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
         this.iva = iva;
     }
 
-    public int codiceRandom()  {
-        Random codice = new Random();
-        return codice.nextInt(999999999);
-    };
 
     public void prezzoBase() {
-        System.out.println("Il prezzo base è "+prezzo+"€");
+        System.out.println("Il prezzo base è "+prezzo+" euro");
     }
 
     public void prezzoIvato() {
-        System.out.println("Il prezzo ivato è "+(prezzo + (prezzo*iva/100))+"€");
+        System.out.println("Il prezzo ivato è "+(prezzo + (prezzo*iva/100))+" euro");
     }
 
     public void nomeEcodice(){
-        System.out.println("Prodotto; "+codice+" - "+nome);
+        System.out.println("Prodotto: "+codice+" - "+nome);
+    }
+    public void descrizione(){
+        System.out.println(descrizione);
     }
 
 }
